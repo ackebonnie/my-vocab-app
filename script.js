@@ -195,11 +195,15 @@ function renderCard(card) {
   ab.classList.remove('visible');
   ab.setAttribute('aria-hidden', 'true');
 
-  // Entry animation
-  fc.classList.remove('card-enter');
-  void fc.offsetWidth;
-  fc.classList.add('card-enter');
+  // Entry animation on the CONTAINER — keeps .card's transform free for the flip
+  const container = getCard().parentElement;
+  container.classList.remove('card-enter');
+  void container.offsetWidth;
+  container.classList.add('card-enter');
+  container.addEventListener('animationend', () => container.classList.remove('card-enter'), { once: true });
+
 }
+
 
 function renderProgress() {
   const total = state.sessionQueue.length;
