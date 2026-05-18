@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="VocabMaster" />
+  <meta name="theme-color" content="#0d0d1a" />
+  <meta name="description" content="Lerne Vokabeln mit Spaced Repetition – schnell, schön und effektiv. Kostenlos als PWA." />
+
+  <title>VocabMaster – Vokabel-App</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <div class="logo-icon">📖</div>
+        <span class="logo-text">VocabMaster</span>
+      </div>
+      <button class="stats-badge" id="stats-btn" aria-label="Statistiken anzeigen">
+        <span class="stats-badge-icon">📊</span>
+        <span class="stats-badge-text">Stats</span>
+      </button>
+    </header>
+
+    <!-- PROGRESS -->
+    <div class="progress-section">
+      <div class="progress-label">
+        <span class="progress-title">Heutige Session</span>
+        <span class="progress-count" id="progress-count">0 / 0</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-bar" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- MAIN CARD SCENE -->
+    <div class="card-scene" id="card-scene">
+
+      <!-- Flashcard -->
+      <div class="card-container">
+        <div class="card" id="flashcard" role="button" tabindex="0" aria-label="Karte umdrehen">
+          <div class="card-face card-front">
+            <span class="word-label">Englisch</span>
+            <span class="word-text" id="word-front">– – –</span>
+          </div>
+          <div class="card-face card-back">
+            <span class="translation-label">Deutsch</span>
+            <span class="translation-text" id="word-translation">– – –</span>
+            <div class="divider"></div>
+            <span class="example-label">Beispielsatz</span>
+            <p class="example-text" id="word-example">–</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rating Buttons (hidden until flipped) -->
+      <div class="action-buttons" id="action-buttons" aria-hidden="true">
+        <button class="action-btn btn-fail" id="btn-fail" aria-label="Nicht gewusst">
+          <span class="action-btn-icon">🔴</span>
+          Nicht gewusst
+        </button>
+        <button class="action-btn btn-hard" id="btn-hard" aria-label="Schwer">
+          <span class="action-btn-icon">🟡</span>
+          Schwer
+        </button>
+        <button class="action-btn btn-easy" id="btn-easy" aria-label="Gewusst">
+          <span class="action-btn-icon">🟢</span>
+          Gewusst
+        </button>
+      </div>
+
+    </div>
+    <!-- /card-scene -->
+
+  </div>
+  <!-- /app -->
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- STATS MODAL -->
+  <div class="modal-overlay" id="modal-overlay" aria-modal="true" role="dialog" aria-labelledby="modal-title-text">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title" id="modal-title-text">📊 Statistiken</span>
+        <button class="modal-close" id="modal-close" aria-label="Schließen">✕</button>
+      </div>
+      <div class="stats-grid" id="stats-grid">
+        <!-- Filled by JS -->
+      </div>
+      <div class="word-list-title">Alle Vokabeln</div>
+      <div class="word-list" id="word-list">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
