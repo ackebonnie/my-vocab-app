@@ -233,6 +233,8 @@ header {
 .card-front {
   background: linear-gradient(145deg, #1e1e40 0%, #16163a 50%, #1a1a45 100%);
   border: 1px solid rgba(108, 99, 255, 0.15);
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
 }
 
 .card-front::before {
@@ -287,6 +289,7 @@ header {
   background: linear-gradient(145deg, #17173a 0%, #12122e 50%, #191938 100%);
   border: 1px solid rgba(167, 139, 250, 0.12);
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
   flex-direction: column;
   gap: 18px;
   text-align: center;
