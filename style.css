@@ -193,6 +193,7 @@ header {
 .card-container {
   width: 100%;
   perspective: 1200px;
+  -webkit-perspective: 1200px;
 }
 
 .card {
@@ -200,13 +201,16 @@ header {
   width: 100%;
   aspect-ratio: 3/2;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -webkit-transition: -webkit-transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
   cursor: pointer;
   user-select: none;
 }
 
 .card.is-flipped {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 .card-face {
